@@ -1,3 +1,10 @@
+module Guia5 where
+
+fib :: Integer -> Integer
+fib 0 = 0
+fib 1 = 1
+fib n = fib(n-1) + fib(n-2)
+
 longitud :: [t] -> Integer
 longitud [] = 0
 longitud (x:xs) = 1 + longitud xs
@@ -120,10 +127,41 @@ sacarBlancosRepetidos (x:xs) | x == ' ' && x == (head xs) = x : sacarBlancosRepe
 
 contarPalabras :: [Char]-> Integer
 contarPalabras [] = 0
-contarPalabras [x] | [x] == ' ' = 0
+contarPalabras [x] | x == ' ' = 0
                    | otherwise = 1
 contarPalabras (x:xs) | x == ' ' = contarPalabras xs
                       | (head xs) == ' ' = 1 + contarPalabras (tail xs)
                       | otherwise = contarPalabras xs
-                            
+
+sumaAcumulada :: (Num t) => [t] -> [t]
+sumaAcumulada [x] = [x]
+sumaAcumulada (x:y:xs) = x : sumaAcumulada ((x + y):xs)
+
                     
+descomponerEnPrimos :: [Integer] -> [[Integer]]
+descomponerEnPrimos [] = []
+descomponerEnPrimos (x:xs) = descomponer x : descomponerEnPrimos xs
+
+
+descomponer :: Integer -> [Integer]
+descomponer n | n == 1 = []
+              | otherwise = (menorDivisorPrimo n 2) : descomponer (div n (menorDivisorPrimo n 2))
+
+
+
+esPrimo :: Integer -> Bool
+esPrimo n | n < 2 = False
+          | menorDivisor n == n = True
+          | otherwise = False
+
+menorDivisor :: Integer -> Integer
+menorDivisor n | n == 1 = 1
+               | otherwise = menorDivisorDesde n 2
+
+menorDivisorDesde :: Integer -> Integer -> Integer
+menorDivisorDesde n k | mod n k == 0 = k
+                      | otherwise = menorDivisorDesde n (k+1)
+
+menorDivisorPrimo :: Integer -> Integer -> Integer
+menorDivisorPrimo n k | mod n k == 0 && esPrimo k = k
+                      | otherwise = menorDivisorPrimo n (k+1)
