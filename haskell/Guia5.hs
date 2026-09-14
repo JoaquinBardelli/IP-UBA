@@ -133,6 +133,35 @@ contarPalabras (x:xs) | x == ' ' = contarPalabras xs
                       | (head xs) == ' ' = 1 + contarPalabras (tail xs)
                       | otherwise = contarPalabras xs
 
+palabras :: [Char] -> [[Char]]
+palabras [] = []
+palabras (x:xs) 
+    | x == ' '      = palabras xs
+    | otherwise     = tomarPalabra (x:xs) : palabras (sacarPalabara (x:xs))
+
+tomarPalabra :: [Char] -> [Char]
+tomarPalabra [] = []
+tomarPalabra (y:ys) 
+    | y == ' '      = []
+    | otherwise     = y : tomarPalabra ys
+
+sacarPalabara :: [Char] -> [Char]
+sacarPalabara [] = []
+sacarPalabara (y:ys) 
+    | y == ' '      = ys
+    | otherwise     = sacarPalabara ys
+
+palabraMasLarga :: [Char] -> [Char]
+palabraMasLarga lista 
+    | tomarPalabra (sacarPalabara lista) == [] = tomarPalabra lista
+    | longitud primera >= longitud segunda       = palabraMasLarga (primera ++ [' '] ++ sacaDos)
+    | otherwise                                = palabraMasLarga (sacarPalabara lista)
+    where 
+        primera = tomarPalabra lista
+        segunda = tomarPalabra (sacarPalabara lista)
+        sacaDos = sacarPalabara (sacarPalabara lista)
+
+        
 sumaAcumulada :: (Num t) => [t] -> [t]
 sumaAcumulada [x] = [x]
 sumaAcumulada (x:y:xs) = x : sumaAcumulada ((x + y):xs)
