@@ -194,3 +194,36 @@ menorDivisorDesde n k | mod n k == 0 = k
 menorDivisorPrimo :: Integer -> Integer -> Integer
 menorDivisorPrimo n k | mod n k == 0 && esPrimo k = k
                       | otherwise = menorDivisorPrimo n (k+1)
+
+
+--Ejercicio 6
+--a) Implementar una funcion que me diga si una persona aparece en mi lista de contactos del telefono
+--b) Implementar una funcion que agregue una nueva persona a mis contactos, si esa persona esta ya en mis contactos entonces actualiza el telefono.
+--c) Implementar una funcion que dado un nombre, elimine un contacto de mis contactos. Si esa persona no esta no hace nada.
+
+type Texto = [Char]
+type Nombre = Texto
+type Telefono = Texto
+type Contacto = (Nombre, Telefono)
+type ContactosTel = [Contacto]
+
+elNombre :: Contacto -> Nombre 
+elNombre (nombre, telefono) = nombre 
+
+elTelefono :: Contacto -> Nombre
+elTelefono (nombre, telefono) = telefono 
+
+enLosContactos :: Nombre-> ContactosTel-> Bool
+enLosContactos nombre [] = False
+enLosContactos nombre ((nombreContacto, telefono):xs) | nombre == nombreContacto = True
+                                                      | otherwise = enLosContactos nombre xs
+
+agregarContacto :: Contacto-> ContactosTel-> ContactosTel
+agregarContacto contacto [] = []
+agregarContacto contacto (existente:xs) | elNombre contacto == elNombre existente = (elNombre existente, elTelefono contacto) : xs
+                                        | otherwise = (elNombre existente, elTelefono existente) : agregarContacto contacto xs
+
+eliminarContacto :: Nombre-> ContactosTel-> ContactosTel
+eliminarContacto nombre [] = []
+eliminarContacto nombre (x:xs) | nombre == elNombre x = xs
+                               | otherwise = x : eliminarContacto nombre xs
