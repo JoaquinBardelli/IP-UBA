@@ -5,6 +5,8 @@ fib 0 = 0
 fib 1 = 1
 fib n = fib(n-1) + fib(n-2)
 
+
+-- Ejercicio 1
 longitud :: [t] -> Integer
 longitud [] = 0
 longitud (x:xs) = 1 + longitud xs
@@ -22,6 +24,7 @@ reverso :: [t] -> [t]
 reverso [] = []
 reverso (x:xs) = reverso xs ++ [x]
 
+--
 pertenece :: (Eq t) => t -> [t] -> Bool
 pertenece t x | longitud x == 0 = False
               | t == head x = True
@@ -73,6 +76,7 @@ capicua :: (Eq t) => [t]-> Bool
 capicua lista | lista == reverso lista = True
               | otherwise = False 
 
+-- Ejercicio 2
 sumatoria :: [Integer]-> Integer
 sumatoria [] = 0
 sumatoria [x] = x
@@ -119,6 +123,7 @@ ordenar lista = ordenar (quitar max lista) ++ [max]
     where
         max = maximo lista 
 
+-- Ejercicio 3
 sacarBlancosRepetidos :: [Char]-> [Char]
 sacarBlancosRepetidos [] = []
 sacarBlancosRepetidos (x:xs) | x == ' ' && x == (head xs) = x : sacarBlancosRepetidos (tail xs)
@@ -161,7 +166,7 @@ palabraMasLarga lista
         segunda = tomarPalabra (sacarPalabara lista)
         sacaDos = sacarPalabara (sacarPalabara lista)
 
-        
+-- Ejercicio 4
 sumaAcumulada :: (Num t) => [t] -> [t]
 sumaAcumulada [x] = [x]
 sumaAcumulada (x:y:xs) = x : sumaAcumulada ((x + y):xs)
@@ -196,7 +201,7 @@ menorDivisorPrimo n k | mod n k == 0 && esPrimo k = k
                       | otherwise = menorDivisorPrimo n (k+1)
 
 
---Ejercicio 6
+-- Ejercicio 6
 --a) Implementar una funcion que me diga si una persona aparece en mi lista de contactos del telefono
 --b) Implementar una funcion que agregue una nueva persona a mis contactos, si esa persona esta ya en mis contactos entonces actualiza el telefono.
 --c) Implementar una funcion que dado un nombre, elimine un contacto de mis contactos. Si esa persona no esta no hace nada.
@@ -227,3 +232,99 @@ eliminarContacto :: Nombre-> ContactosTel-> ContactosTel
 eliminarContacto nombre [] = []
 eliminarContacto nombre (x:xs) | nombre == elNombre x = xs
                                | otherwise = x : eliminarContacto nombre xs
+
+--Ejercicio 8
+--a
+sumaTotal :: [[Integer]]-> Integer
+sumaTotal [] = 0
+sumaTotal (lista:xs) = sumarElementos lista + sumaTotal xs
+
+sumarElementos :: [Integer] -> Integer
+sumarElementos [] = 0
+sumarElementos (x:xs) = x + sumarElementos xs
+
+--b
+cantidadDeApariciones :: Integer-> [[Integer]]-> Integer
+cantidadDeApariciones n [] = 0
+cantidadDeApariciones n (lista:xs) = cantidadDeAparicionesLista n lista + cantidadDeApariciones n xs 
+
+cantidadDeAparicionesLista :: Integer -> [Integer] -> Integer
+cantidadDeAparicionesLista n [] = 0
+cantidadDeAparicionesLista n (x:xs) | n == x = 1 + cantidadDeAparicionesLista n xs
+                                    | otherwise = cantidadDeAparicionesLista n xs
+
+--c
+contarPalabras2 :: String -> [[String]] -> Int
+contarPalabras2 palabra [] = 0 
+contarPalabras2 palabra (oracion:xs) = contarApariciones palabra oracion + contarPalabras2 palabra xs
+
+contarApariciones :: String -> [String] -> Int
+contarApariciones palabra [] = 0
+contarApariciones palabra (x:xs) | palabra == x = 1 + contarApariciones palabra xs
+                                 | otherwise = contarApariciones palabra xs
+
+--d
+cantidadDeApariciones2 :: (Eq a) => a-> [[a]]-> Integer
+cantidadDeApariciones2 elemento [] = 0
+cantidadDeApariciones2 elemento (x:xs) = contarAparicionesLista2 elemento x + cantidadDeApariciones2 elemento xs
+
+contarAparicionesLista2 :: (Eq a) => a-> [a]-> Integer
+contarAparicionesLista2 elemento [] = 0 
+contarAparicionesLista2 elemento (x:xs) | elemento == x = 1 + contarAparicionesLista2 elemento xs
+                                        | otherwise = contarAparicionesLista2 elemento xs
+
+-- e
+multiplicarPorEscalar :: Integer-> [[Integer]]-> [[Integer]]
+multiplicarPorEscalar escalar [] = []
+multiplicarPorEscalar escalar (x:xs) = multiplicarPorEscalarLista escalar x : multiplicarPorEscalar escalar xs
+
+multiplicarPorEscalarLista :: Integer -> [Integer] -> [Integer]
+multiplicarPorEscalarLista escalar [] = []
+multiplicarPorEscalarLista escalar (x:xs) = escalar*x : multiplicarPorEscalarLista escalar xs
+
+--f
+concatenarFilas :: [[String]]->[String]
+concatenarFilas [] = []
+concatenarFilas (x:xs) = concatenarStrings x : concatenarFilas xs
+
+concatenarStrings :: [String] -> String
+concatenarStrings [] = ""
+concatenarStrings (x:xs) = x ++ concatenarStrings xs 
+
+--g
+iesimaFila :: Integer-> [[a]]-> [a]
+iesimaFila n (x:xs) | n == 1 = x
+                    | otherwise = iesimaFila (n-1) xs
+
+--h
+iesimaColumna :: Integer -> [[a]] -> [a]
+iesimaColumna n [] = []
+iesimaColumna n (x:xs) = columnaAux n x : iesimaColumna n xs
+
+columnaAux :: Integer -> [a] -> a
+columnaAux n (x:xs) | n == 1 = x
+                    | otherwise = columnaAux (n-1) xs
+
+--i
+matrizIdentidad :: Integer-> [[Integer]]
+matrizIdentidad 0 = []
+matrizIdentidad tamano = armarIdentidad 1 tamano
+
+
+armarIdentidad :: Integer -> Integer -> [[Integer]]
+armarIdentidad posicion 0 = []
+armarIdentidad posicion tamano | posicion <= tamano = armarFila posicion tamano : armarIdentidad (posicion + 1) tamano
+                               | otherwise = []
+armarFila :: Integer -> Integer -> [Integer]
+armarFila posicion 0 = []
+armarFila posicion tamano | posicion == 1 = 1 : armarFila 0 (tamano-1)
+                          | otherwise = 0 : armarFila (posicion-1) (tamano-1)
+
+--j
+cantidadParesColumna :: Integer-> [[Integer]]-> Integer
+cantidadParesColumna columna matriz = cantidadPares (iesimaColumna columna matriz)
+
+cantidadPares :: [Integer] -> Integer
+cantidadPares [] = 0
+cantidadPares (x:xs) | mod x 2 == 0 = 1 + cantidadPares xs
+                     | otherwise = cantidadPares xs 
