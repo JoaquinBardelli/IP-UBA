@@ -83,3 +83,60 @@ def esBisiesto(ano:int) -> bool:
     return esMultiploDe(ano, 400) or (esMultiploDe(ano,4) and not esMultiploDe(ano,100))
 
 #EJERCICIOS D
+def pesoPino(altura:int) -> int: #Recibo la altura en metros
+    if altura <= 3:
+        return altura*100*3
+    else:
+        return (3*100*3)+((altura-3)*100*2)
+
+def esPesoUtil(peso:int) -> bool:
+    return peso >= 400 and peso <= 1000
+
+def sirvePino(altura:int) -> bool:
+    return esPesoUtil(pesoPino(altura))
+
+
+#EJERCICIOS E
+def devolverElDobleSiEsPar(numero:int) -> int:
+    if numero % 2 == 0:
+        return numero*2
+    else:
+        return numero
+
+def devolverValorSiEsParSinoElQueSigue(numero:int) -> int:
+    if numero % 2 == 0:
+        return numero
+    else:
+        return numero + 1
+
+def devolverElDobleSiEsMultiplo3ElTripleSiEsMultiplo9(numero:int) -> int:
+    if numero % 9 == 0:
+        return numero*3
+    elif numero % 3 == 0:
+        return numero*2
+    else:
+        return numero
+
+def lindoNombre(nombre:str):
+    if len(nombre) >= 5:
+        print("Tu nombre tiene muchas letras!")
+    else:
+        print("Tu nombre tiene menos de 5 caracteres")
+
+def elRango(numero: int):
+    if numero < 5:
+        print("Menor a 5")
+    elif 10 <= numero <= 20:
+        print("Entre 10 y 20")
+    elif numero > 20:
+        print("Mayor a 20")
+
+def vacacionesOTrabajo(sexo:str, edad:int):
+    if sexo == "M" and 18 <= edad <65:
+        print("Te toca trabajar")
+    elif sexo == "M":
+        print("Anda de vacaciones")
+    elif sexo == "F" and 18 <= edad <60:
+        print("Te toca trabajar")
+    else:
+        print("Anda de vacaciones")
