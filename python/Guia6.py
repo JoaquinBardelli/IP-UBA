@@ -1,6 +1,6 @@
 import math 
 
-#EJERCICIOS A
+#EJERCICIOS 1
 #Ejercicio 1
 def holaMundo():
     print("Hola mundo")
@@ -27,7 +27,7 @@ def factorialDeDos() -> int:
 def perimetro() -> float:
     return math.pi*2
 
-#EJERCICIOS B
+#EJERCICIOS 2
 #Ejercicio 1
 def imprimirSaludo(nombre: str):
     print("Hola",nombre, "te saluda tu amigo python")
@@ -62,7 +62,7 @@ def esPar(numero:int) -> bool:
 def cantidadDePizzas(comensales:int, minCantDePorciones:int):
     return math.ceil((comensales*minCantDePorciones)/8)
 
-#EJERCICIOS C
+#EJERCICIOS 3
 #Ejercicio 1
 def algunoEs0(num1:int,num2:int) -> bool:
     if num1 == 0 or num2 == 0:
@@ -82,7 +82,7 @@ def esNombreLargo(nombre:str) -> bool:
 def esBisiesto(ano:int) -> bool:
     return esMultiploDe(ano, 400) or (esMultiploDe(ano,4) and not esMultiploDe(ano,100))
 
-#EJERCICIOS D
+#EJERCICIOS 4
 def pesoPino(altura:int) -> int: #Recibo la altura en metros
     if altura <= 3:
         return altura*100*3
@@ -96,7 +96,7 @@ def sirvePino(altura:int) -> bool:
     return esPesoUtil(pesoPino(altura))
 
 
-#EJERCICIOS E
+#EJERCICIOS 5
 def devolverElDobleSiEsPar(numero:int) -> int:
     if numero % 2 == 0:
         return numero*2
@@ -140,3 +140,52 @@ def vacacionesOTrabajo(sexo:str, edad:int):
         print("Te toca trabajar")
     else:
         print("Anda de vacaciones")
+
+#EJERCICIOS 6
+#Ejercicio 1
+def imprimir1a10():
+    contador = 1
+    while contador <= 10:
+        print(contador)
+        contador += 1
+
+#Ejercicio 2
+def imprimirPares10a40():
+    contador = 10
+    while contador <= 40:
+        if contador % 2 == 0:
+            print(contador)
+        contador += 1
+
+#Ejercicio 3
+def imprimirEcox10():
+    contador = 0
+    while contador < 10:
+        print("eco")
+        contador += 1
+
+#Ejercicio 4
+def cuentaRegresiva (countdown:int):
+    while countdown > 0:
+        print(countdown)
+        countdown -= 1
+    print("DESPEGUE")
+
+#Ejercicio 5
+def viajarAlPasado(llegada:int,partida:int):
+    while partida > llegada + 1:
+        print("Viajo un ano al pasado, estamos en el ano", partida-1)
+        partida -= 1
+    print("Finalmente llego al ano", llegada)
+
+#Ejercicio 6
+def conocerAristoteles(llegada:int,partida:int):
+    while partida > llegada:
+        if partida >= llegada + 20:
+            print("Viajo 20 anos al pasado, estamos en el ano",partida-20)
+            partida -= 20
+        else:
+            partida = llegada
+    print("Finalmente llego al ano", partida)
+
+conocerAristoteles(-382,-300)
