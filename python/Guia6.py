@@ -189,3 +189,37 @@ def conocerAristoteles(llegada:int,partida:int):
     print("Finalmente llego al ano", partida)
 
 conocerAristoteles(-382,-300)
+
+#EJERCICIOS 7
+#Ejercicio 1
+def imprimir10():
+    for i in range(1,11):
+        print(i)
+
+#Ejercicio 2
+def imprimirPares40():
+    for i in range(10,41,2):
+        print(i)
+
+#Ejercicio 3
+def imprimirEco():
+    for i in range(10):
+        print("eco")
+
+#Ejercicio 4
+def despegue(numero:int):
+    for i in range(numero,0,-1):
+        print(i)
+    print("DESPEGUE")
+
+#Ejercicio 5
+def bttf(partida:int,llegada:int):
+    for i in range(partida-1,llegada,-1):
+        print("Viajo un ano al pasado, estamos en el ano", i)
+    print("Finalmente llego al ano", llegada)
+
+#Ejercicio 6
+def bttfAris(llegada:int,partida:int):
+    for i in range(partida-20,llegada,-20):
+        print("Viajo un ano al pasado, estamos en el ano", i)
+    print("Finalmente llego al ano", llegada)
