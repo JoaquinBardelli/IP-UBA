@@ -236,3 +236,27 @@ def eliminarRepetidos(palabra:str) -> str:
             res += letra
     return res
 
+#EJERCICIO 3
+def resultadoMateria(notas:list[int]) -> int:
+    promedio = sumaTotal(notas)/len(notas)
+    for num in notas:
+        if num < 4:
+            return 3
+    if promedio < 4:
+        return 3
+    elif 4 <= promedio < 7:
+        return 2
+
+    return 1    
+
+#EJERCICIO 4
+def saldoActual(movimientos: list[(str,int)]) -> int:
+    saldo = 0
+    for movimiento in movimientos:
+        if movimiento[0] == 'I':
+            saldo += movimiento[1]
+        elif movimiento[0] == 'R':
+            saldo -= movimiento[1]
+        else:
+            print("Ingreso una operacion invalida")
+    return saldo
