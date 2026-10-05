@@ -260,3 +260,4 @@ def saldoActual(movimientos: list[(str,int)]) -> int:
         else:
             print("Ingreso una operacion invalida")
     return saldo
+
