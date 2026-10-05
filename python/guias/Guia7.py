@@ -261,3 +261,42 @@ def saldoActual(movimientos: list[(str,int)]) -> int:
             print("Ingreso una operacion invalida")
     return saldo
 
+
+#! PARTE 3: Matrices
+
+#5.1
+def perteneceACadaUno1(matriz:list[list[int]], num:int, lista:list[bool]):
+    for i in range (0,len(matriz)):
+        if num in matriz[i]:
+            lista[i] = True
+        else:
+            lista[i] = False
+
+#lista = [True,False,False,True]
+#perteneceACadaUno1([[1,2,3],[3,4,5],[7,8,9]],3,lista)
+#print(lista)
+
+#5.2
+def perteneceACadaUno2(matriz:list[list[int]], num:int, lista:list[bool]):
+    lista.clear()
+    for i in range (0,len(matriz)):
+            if num in matriz[i]:
+                lista.append(True)
+            else:
+                lista.append(False)
+
+#lista = [True,False,False,True]
+#perteneceACadaUno2([[1,2,3],[3,4,5],[7,8,9]],3,lista)
+#print(lista)
+
+#5.3
+def perteneceACadaUno3(matriz:list[list[int]], num:int) -> list[bool]:
+    lista = []
+    for i in range (0,len(matriz)):
+            if num in matriz[i]:
+                lista.append(True)
+            else:
+                lista.append(False)
+    return lista
+
+print(perteneceACadaUno3([[1,2,3],[3,4,5],[7,8,9]],3))
