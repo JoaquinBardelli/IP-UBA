@@ -300,3 +300,32 @@ def perteneceACadaUno3(matriz:list[list[int]], num:int) -> list[bool]:
     return lista
 
 print(perteneceACadaUno3([[1,2,3],[3,4,5],[7,8,9]],3))
+
+#6.1
+def esMatriz(matriz:list[list[int]]) -> bool:
+    if len(matriz) > 0:
+        longitud = len(matriz[0])
+        for fila in matriz:
+            if len(fila) != longitud:
+                return False
+    return True
+
+print(esMatriz([[1,2,3],[4,5,6],[7,8,9]]))
+
+#6.2
+def filasOrdenadas(matriz:list[list[int]], res:list[bool]):
+    res.clear()
+    for fila in matriz:
+        if ordenados(fila):
+            res.append(True)
+        else:
+            res.append(False)
+
+#6.3
+def columna(matriz:list[list[int]], columna:int) -> list[int]:
+    res = []
+    for fila in matriz:
+        res.append(fila[columna])
+    return res
+
+print(columna([[1,2,3],[4,5,6],[7,8,9]], 1))  # [2, 5, 8]
