@@ -352,3 +352,82 @@ def trasponer(matriz:list[list[int]]) -> list[list[int]]:
 print(trasponer([[1,2,3],[4,5,6],[7,8,9]]))  
 
 #6.6
+def quienGanaTateti(tablero:list[list[str]]) -> int:
+    res = 2
+    for fila in tablero:
+        if chequearLista(fila,"X"):
+            res = 1
+        elif chequearLista(fila, "O"):
+            res = 0
+    for i in range(0,len(tablero)):
+        col = columna(tablero,i)
+        if chequearLista(col,"X"):
+                    res = 1
+        elif chequearLista(col, "O"):
+            res = 0
+    for diagonal in diagonales(tablero):
+        if chequearLista(diagonal,"X"):
+            res = 1
+        elif chequearLista(diagonal, "O"):
+            res = 0
+    return res
+def chequearLista(lista:list[str], caracter:str) -> bool:
+    for elemento in lista:
+        if elemento != caracter:
+            return False
+    return True
+
+def diagonales(tablero:list[list[str]]) -> list[list[str]]:
+    res = []
+    diagonal1 = []
+    diagonal2 = []
+    for i in range(0,len(tablero)):
+        for j in range(0,len(tablero)):
+            if i == j:
+                diagonal1.append(tablero[i][j])
+    for i in range(0,len(tablero)):
+            for j in range(len(tablero)-1,-1,-1):
+                if i+j == 2:
+                    diagonal2.append(tablero[i][j])
+    res.append(diagonal1)
+    res.append(diagonal2)
+    return res
+
+print(quienGanaTateti([["X","O",""],["","O",""],["X","O",""]]))
+
+
+#! PARTE 4: Programas interactivos usando secuencias
+
+#7.1
+def estudiantes()-> list[str]:
+    nombres = []
+    nombre = input("Ingrese el nombre de su estudiante: ")
+    while nombre not in ["listo",""]:
+        nombres.append(nombre)
+        print("Estudiante ",nombre, " ingresado con exito!")
+        nombre = input("Ingrese el nombre de su estudiante: ")
+    return nombres
+
+#print(estudiantes())
+
+def historialMonedero() -> list[(str,int)]:
+    creditos = 0
+    historial = []
+    accion = input("Ingrese la opercion a hacer: ")
+    while accion != "X":
+        if accion == "C":
+            monto = int(input("Ingrese el monto a cargar: "))
+            historial.append(("C",monto))
+            creditos += monto
+        elif accion == "D":
+            monto = int(input("Ingrese el monto a descontar: "))
+            if monto > creditos:
+                print("No puede descontar esa cantidad de creditos, ingrese una menor")
+            else:
+                historial.append(("D",monto))
+                creditos -= monto
+
+        accion = input("Ingrese la opercion a hacer: ")
+    return historial
+
+print(historialMonedero())
