@@ -329,3 +329,26 @@ def columna(matriz:list[list[int]], columna:int) -> list[int]:
     return res
 
 print(columna([[1,2,3],[4,5,6],[7,8,9]], 1))  # [2, 5, 8]
+
+#6.4
+def columnaOrdenadas(matriz:list[list[int]]) -> list[bool]:
+    res =[]
+    for i in range(0,len(matriz[0])):
+        if ordenados(columna(matriz,i)):
+            res.append(True)
+        else:
+            res.append(False)
+    return res
+
+print(columnaOrdenadas([[1,2,3],[4,5,6],[1,8,9]]))  
+
+#6.5
+def trasponer(matriz:list[list[int]]) -> list[list[int]]:
+    res = []
+    for i in range(0,len(matriz)):
+        res.append(columna(matriz,i))
+    return res
+
+print(trasponer([[1,2,3],[4,5,6],[7,8,9]]))  
+
+#6.6
