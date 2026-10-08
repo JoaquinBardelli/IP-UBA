@@ -3,26 +3,27 @@ from queue import LifoQueue as Pila
 
 # ! PARTE 1: Listas
 
-def mostrarPila(pilaOriginal:Pila):
-    pila = pilaOriginal
+def mostrarPila(pilaOriginal: Pila) -> None:
     res = []
-    for i in  range(0,pila.qsize()):
-        res.append(pila.get())
-    print("Pila del ultimo al primer elemento ingresado: ",res)
+    while not pilaOriginal.empty():
+        res.append(pilaOriginal.get())
+    print("Pila del ultimo al primer elemento ingresado: ", res)
+
+    for elem in reversed(res):      # del fondo al tope
+        pilaOriginal.put(elem)
 
 #1
 def generarNrosAlAzar(cantidad:int,desde:int,hasta:int) -> Pila:
     res = Pila()
     for i in range(0,cantidad):
         numeroRandom = random.randint(desde,hasta)
-        print(numeroRandom)
         res.put(numeroRandom)
 
     return res
 
 #pilaLifo = generarNrosAlAzar(5,0,10)
 #mostrarPila(pilaLifo)   
-#mostrarPila(pilaLifo) #! Mostrar pila saca todos de la pila corregirlo
+#mostrarPila(pilaLifo)
 
 #2
 def cantidadDeElementos(pila:Pila) -> int:
@@ -58,6 +59,44 @@ def buscarElMaximo(pila:Pila) -> int:
     
     return maximo
 
-pila2 = generarNrosAlAzar(5,0,10)
-print(buscarElMaximo(pila2))
-mostrarPila(pila2)
+#pila2 = generarNrosAlAzar(5,0,10)
+#print(buscarElMaximo(pila2))
+#mostrarPila(pila2)
+
+#4
+def buscarNotaMaxima(pila:Pila[(str,int)]) -> tuple[str,int]:
+    maximo = ("",0)
+    pilaOriginal = []
+    while not pila.empty():
+        elemento = pila.get()
+        pilaOriginal.append(elemento)
+        if elemento[1] > maximo[1]:
+            maximo = elemento
+    for elem in reversed(pilaOriginal):
+        pila.put(elem)
+
+    return maximo
+
+"""pila2 = Pila()
+pila2.put(("pedro",6))
+pila2.put(("pedro2",5))
+pila2.put(("pedro3",4))
+pila2.put(("pedro4",8))
+print(buscarNotaMaxima(pila2))
+mostrarPila(pila2)"""
+
+#5
+def estaBienBalanceada(caracteres:list[str]) -> bool:
+    parentesis = Pila()
+    for elem in caracteres:
+        if elem == "(":
+            parentesis.put(elem)
+        elif elem == ")":
+            if parentesis.empty():
+                return False
+            else:
+                parentesis.get()
+
+    return parentesis.empty() #* Si esta vacia => esta bien balanceado, si NO esta vacia => sobra algun parentesis
+
+print(estaBienBalanceada(["1",")","+","2","(","(",")"]))
