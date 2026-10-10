@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Haskell
+*.hi
+*.o
+dist-newstyle/
+.stack-work/
+
+# Editor / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
