@@ -44,4 +44,4 @@ python -m unittest testGuia7
 ## Estado
 
 - [x] Guías 3–7
-- [ ] Guía 8 (pilas terminadas, en curso)
+- [ ] Guía 8 (pilas y colas terminadas, en curso)
