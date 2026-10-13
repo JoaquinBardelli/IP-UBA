@@ -45,7 +45,7 @@ def cantidadDeElementos(pila:Pila) -> int:
 #mostrarPila(pila2)
 
 #3
-def buscarElMaximo(pila:Pila) -> int:
+def buscarElMaximo(pila:Pila[int]) -> int:
     maximo = 0
     elementos = []
     while pila.empty() == False:
@@ -279,4 +279,46 @@ def jugarCartonDeBingo(carton:list[int], bolillero:Cola) -> int:
         bolillero.put(elem)
     return jugadas
 
-print(jugarCartonDeBingo([1,99,2,98,67,76,84,35,54,14,11,12],armarSecuenciaDeBingo()))
+#print(jugarCartonDeBingo([1,99,2,98,67,76,84,35,54,14,11,12],armarSecuenciaDeBingo()))
+
+#14
+def pacientesUrgentes(pacientes:Cola) -> int:
+    elementos = []
+    cantidad = 0
+    while not pacientes.empty():
+        elementos.append(pacientes.get())
+    for elem in elementos:
+        if elem[0] < 4:
+            cantidad += 1
+        pacientes.put(elem)
+    return cantidad
+""""
+pacientes = Cola()
+pacientes.put((1,"Juan","Cardiologia"))
+pacientes.put((3,"Juan","Cardiologia"))
+pacientes.put((2,"Juan","Cardiologia"))
+pacientes.put((5,"Juan","Cardiologia"))
+pacientes.put((6,"Juan","Cardiologia"))
+print(pacientesUrgentes(pacientes))"""
+
+#15
+def atencionAClientes(clientes:Cola[tuple[str,int,bool,bool]]) -> Cola[tuple[str,int,bool,bool]]:
+    cola = Cola()
+    elementos = []
+    clientesPrioridad = []
+    clientesPreferencial = []
+    clientesNormales = []
+    while not clientes.empty():
+        cliente = clientes.get()
+        elementos.append(cliente)
+        if (cliente[3]):
+            clientesPrioridad.append(cliente)
+        elif(cliente[2]):
+            clientesPreferencial.append(cliente)
+        else:
+            clientesNormales.append(cliente)
+    for cliente in clientesPrioridad + clientesPreferencial + clientesNormales:
+        cola.put(cliente)
+    for elem in elementos:
+        clientes.put(elem)
+    return cola
