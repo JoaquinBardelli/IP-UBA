@@ -54,13 +54,12 @@ def buscarNotaMinima(cola:Cola)->list[(str,int)]:
         cola.put(elem)
     return minimo
 
-"""
-cola = Cola()
-cola.put(("Joaquin",10))
-cola.put(("Pedro",6))
-cola.put(("Juan",7))
-cola.put(("Gonza",3))
-print(buscarNotaMinima(cola))"""
+# cola = Cola()
+# cola.put(("Joaquin",10))
+# cola.put(("Pedro",6))
+# cola.put(("Juan",7))
+# cola.put(("Gonza",3))
+# print(buscarNotaMinima(cola))
 
 #12
 def intercalar(cola1:Cola,cola2:Cola) -> Cola:
@@ -123,14 +122,14 @@ def pacientesUrgentes(pacientes:Cola) -> int:
             cantidad += 1
         pacientes.put(elem)
     return cantidad
-""""
-pacientes = Cola()
-pacientes.put((1,"Juan","Cardiologia"))
-pacientes.put((3,"Juan","Cardiologia"))
-pacientes.put((2,"Juan","Cardiologia"))
-pacientes.put((5,"Juan","Cardiologia"))
-pacientes.put((6,"Juan","Cardiologia"))
-print(pacientesUrgentes(pacientes))"""
+
+# pacientes = Cola()
+# pacientes.put((1,"Juan","Cardiologia"))
+# pacientes.put((3,"Juan","Cardiologia"))
+# pacientes.put((2,"Juan","Cardiologia"))
+# pacientes.put((5,"Juan","Cardiologia"))
+# pacientes.put((6,"Juan","Cardiologia"))
+# print(pacientesUrgentes(pacientes))
 
 #15
 def atencionAClientes(clientes:Cola[tuple[str,int,bool,bool]]) -> Cola[tuple[str,int,bool,bool]]:

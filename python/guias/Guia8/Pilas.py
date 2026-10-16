@@ -77,13 +77,13 @@ def buscarNotaMaxima(pila:Pila[(str,int)]) -> tuple[str,int]:
 
     return maximo
 
-"""pila2 = Pila()
-pila2.put(("pedro",6))
-pila2.put(("pedro2",5))
-pila2.put(("pedro3",4))
-pila2.put(("pedro4",8))
-print(buscarNotaMaxima(pila2))
-mostrarPila(pila2)"""
+# pila2 = Pila()
+# pila2.put(("pedro",6))
+# pila2.put(("pedro2",5))
+# pila2.put(("pedro3",4))
+# pila2.put(("pedro4",8))
+# print(buscarNotaMaxima(pila2))
+# mostrarPila(pila2)
 
 #5
 def estaBienBalanceada(caracteres:list[str]) -> bool:
