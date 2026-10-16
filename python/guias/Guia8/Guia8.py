@@ -78,13 +78,13 @@ def buscarNotaMaxima(pila:Pila[(str,int)]) -> tuple[str,int]:
 
     return maximo
 
-"""pila2 = Pila()
-pila2.put(("pedro",6))
-pila2.put(("pedro2",5))
-pila2.put(("pedro3",4))
-pila2.put(("pedro4",8))
-print(buscarNotaMaxima(pila2))
-mostrarPila(pila2)"""
+# pila2 = Pila()
+# pila2.put(("pedro",6))
+# pila2.put(("pedro2",5))
+# pila2.put(("pedro3",4))
+# pila2.put(("pedro4",8))
+# print(buscarNotaMaxima(pila2))
+# mostrarPila(pila2)
 
 #5
 def estaBienBalanceada(caracteres:list[str]) -> bool:
@@ -223,13 +223,12 @@ def buscarNotaMinima(cola:Cola)->list[(str,int)]:
         cola.put(elem)
     return minimo
 
-"""
-cola = Cola()
-cola.put(("Joaquin",10))
-cola.put(("Pedro",6))
-cola.put(("Juan",7))
-cola.put(("Gonza",3))
-print(buscarNotaMinima(cola))"""
+# cola = Cola()
+# cola.put(("Joaquin",10))
+# cola.put(("Pedro",6))
+# cola.put(("Juan",7))
+# cola.put(("Gonza",3))
+# print(buscarNotaMinima(cola))
 
 #12
 def intercalar(cola1:Cola,cola2:Cola) -> Cola:
@@ -292,14 +291,14 @@ def pacientesUrgentes(pacientes:Cola) -> int:
             cantidad += 1
         pacientes.put(elem)
     return cantidad
-""""
-pacientes = Cola()
-pacientes.put((1,"Juan","Cardiologia"))
-pacientes.put((3,"Juan","Cardiologia"))
-pacientes.put((2,"Juan","Cardiologia"))
-pacientes.put((5,"Juan","Cardiologia"))
-pacientes.put((6,"Juan","Cardiologia"))
-print(pacientesUrgentes(pacientes))"""
+
+# pacientes = Cola()
+# pacientes.put((1,"Juan","Cardiologia"))
+# pacientes.put((3,"Juan","Cardiologia"))
+# pacientes.put((2,"Juan","Cardiologia"))
+# pacientes.put((5,"Juan","Cardiologia"))
+# pacientes.put((6,"Juan","Cardiologia"))
+# print(pacientesUrgentes(pacientes))
 
 #15
 def atencionAClientes(clientes:Cola[tuple[str,int,bool,bool]]) -> Cola[tuple[str,int,bool,bool]]:
@@ -391,3 +390,56 @@ agregarProducto(inventario, "Pantalón", 30.0, 30)
 actualizarStock(inventario, "Camisa", 10)
 valorTotal = calcularValorInventario(inventario)
 print("Valor total del inventario:", valorTotal)   # 1100.0
+
+
+#! PARTE 4: Archivos
+
+puntuacion = ".,;:“”‘’\"'¡!¿?()[]{}<>"
+
+#19.1
+def contarLineas(nombreArchivo: str) -> int:
+    archivo = open(nombreArchivo, "r", encoding="utf-8")
+    cantidad = 0
+    for linea in archivo:
+        cantidad += 1
+    archivo.close()
+    return cantidad
+
+#print(contarLineas("prueba.txt"))   # 19
+
+#19.2
+def existePalabra(nombreArchivo:str,palabra:str) -> bool:
+    archivo = open(nombreArchivo, "r", encoding="utf-8")
+    existe = False
+    for linea in archivo:
+        for signo in puntuacion:
+            linea = linea.replace(signo, " ")
+        if palabra in linea.split():
+            existe = True
+            break
+    archivo.close()
+    return existe
+
+# print(existePalabra("prueba.txt", "Hola"),      # True  (aparece como "Hola!")
+# existePalabra("prueba.txt", "ip-algo1"),  # True  (el guion es parte de la palabra)
+# existePalabra("prueba.txt", "canción"),   # True  (con tilde)
+# existePalabra("prueba.txt", "cas") ,      # False (solo está dentro de "casa")
+# existePalabra("prueba.txt", "gato") )     # False
+
+#19.3
+def cantidadDeApariciones(nombreArchivo:str,palabra:str) -> int:
+    archivo = open(nombreArchivo, "r", encoding="utf-8")
+    cantidad = 0
+    for linea in archivo:
+        for signo in puntuacion:
+            linea = linea.replace(signo, " ")
+        cantidad += linea.split().count(palabra)
+    archivo.close()
+    return cantidad
+
+# print(contarLineas("prueba.txt"))                      # 19
+# print(existePalabra("prueba.txt", "Hola"))             # True
+# print(existePalabra("prueba.txt", "cas"))              # False
+# print(cantidadDeApariciones("prueba.txt", "casa"))     # 3
+
+#20
