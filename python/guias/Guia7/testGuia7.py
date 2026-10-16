@@ -1,5 +1,5 @@
 import unittest
-from Guia7 import saldoActual, cantidadDigitosImpares,longMayorASiete
+from python.guias.Guia7.Guia7 import saldoActual, cantidadDigitosImpares,longMayorASiete
 
 class testSaldo(unittest.TestCase):
     def testSaldo(self):
