@@ -26,7 +26,7 @@ python/
 En las guías 7 y 8, `GuiaN.py` tiene la guía entera y los demás archivos son la misma guía separada por tema:
 
 - **Guía 7:** `Busqueda.py` (recorrido y búsqueda en secuencias), `Filtrado.py` (filtrar, modificar y procesar secuencias), `Matrices.py`, `Interactivos.py` (programas interactivos)
-- **Guía 8:** `Pilas.py`, `Colas.py`, `Diccionarios.py`
+- **Guía 8:** `Pilas.py`, `Colas.py`, `Diccionarios.py`, `Archivos.py` (lectura de archivos de texto; usa `prueba.txt` de la misma carpeta)
 
 Parciales en `haskell/parciales/`: `parcial2024`, `SimulacroHaskell` (consigna en `consignaSimulacro.txt`), `Repaso`, `democracia`, `perfectosAmigos`, `sistemaStock`, `sopaDeNumeros`.
 
@@ -60,4 +60,4 @@ Los archivos por tema se corren desde su carpeta, porque algunos importan funcio
 ## Estado
 
 - [x] Guías 3–7
-- [ ] Guía 8 (pilas, colas y diccionarios terminados, en curso)
+- [ ] Guía 8 (pilas, colas y diccionarios terminados; archivos en curso)
