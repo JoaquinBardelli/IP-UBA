@@ -443,3 +443,52 @@ def cantidadDeApariciones(nombreArchivo:str,palabra:str) -> int:
 # print(cantidadDeApariciones("prueba.txt", "casa"))     # 3
 
 #20
+def agruparPorLongitud(nombreArchivo:str) -> dict[int,int]:
+    cantidades = {}
+    longPalabras = longitudDePalabras(nombreArchivo)
+    for i in longPalabras:
+        if i in cantidades:
+            cantidades[i] += 1
+        else:
+            cantidades[i] = 1
+    return cantidades
+
+def longitudDePalabras(nombreArchivo:str) -> list[int]:
+    long = []
+    archivo = open(nombreArchivo,"r", encoding='utf-8')
+    for linea in archivo:
+        for signo in puntuacion:
+            linea = linea.replace(signo, " ")
+        for palabra in linea.split():
+            long.append(len(palabra))
+    archivo.close()
+    return long
+
+#print(agruparPorLongitud("prueba.txt"))
+
+#21
+def laPalabraMasFrecuente(nombreArchivo:str) -> str:
+    frecuencia = frecuenciaPalabra(nombreArchivo)
+    maximo = 0
+    masFrecuente = ""
+    for palabra in frecuencia:
+        if frecuencia[palabra] > maximo:
+            maximo = frecuencia[palabra]
+            masFrecuente = palabra
+    return masFrecuente
+
+def frecuenciaPalabra(nombreArchivo:str) -> dict[str,int]:
+    frecuencia = {}   
+    archivo = open(nombreArchivo,"r",encoding="utf-8")
+    for linea in archivo:
+        for signo in puntuacion:
+            linea = linea.replace(signo," ")
+        for palabra in linea.split():
+            if palabra in frecuencia:
+                frecuencia[palabra] += 1
+            else:
+                frecuencia[palabra] = 1
+    archivo.close()
+    return frecuencia
+
+print(laPalabraMasFrecuente("prueba.txt"))
