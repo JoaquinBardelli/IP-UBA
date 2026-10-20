@@ -5,6 +5,10 @@ Palabras con numeros: Algo1 P5P IP2026 ip-algo1
 Palabras con guiones: sal-to bien-venido semi-circulo
 Palabra con guion bajo al principio: _ip
 
+#con comentario
+sin #comentario
+#
+
 Palabras con tilde y ñ: canción, niño, mañana, pingüino, árbol, también.
 Puntuacion varia: (uno) [dos] {tres} <cuatro> "cinco" 'seis' ¡siete! ¿ocho?
 Signos juntos: fin.Otra,cosa;mas:todavia

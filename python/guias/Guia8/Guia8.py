@@ -492,3 +492,15 @@ def frecuenciaPalabra(nombreArchivo:str) -> dict[str,int]:
     return frecuencia
 
 print(laPalabraMasFrecuente("prueba.txt"))
+
+#22
+def clonarSinComentarios(nombreArchivoEntrada:str,nombreArchivoSalida:str):
+    entrada = open(nombreArchivoEntrada,"r",encoding="utf-8")
+    salida = open(nombreArchivoSalida,"w",encoding="utf-8")
+    for linea in entrada:
+        if linea[0] != "#":
+            salida.write(linea)
+    entrada.close()
+    salida.close()
+
+clonarSinComentarios("prueba.txt","pruebaSinComentarios.txt")
