@@ -1,0 +1,22 @@
+Fin del archivo de prueba.Las notas del parcial fueron 7, 8, 10 y 4.
+Ultimas lineas del archivo:
+
+python
+Una linea con una palabra sola:
+La palabra repetida: casa casa casa perro Casa CASA
+   Esta linea empieza con espacios y termina con espacios   
+
+Signos juntos: fin.Otra,cosa;mas:todavia
+Puntuacion varia: (uno) [dos] {tres} <cuatro> "cinco" 'seis' ¡siete! ¿ocho?
+Palabras con tilde y ñ: canción, niño, mañana, pingüino, árbol, también.
+
+#
+sin #comentario
+#con comentario
+
+Palabra con guion bajo al principio: _ip
+Palabras con guiones: sal-to bien-venido semi-circulo
+Palabras con numeros: Algo1 P5P IP2026 ip-algo1
+
+Hola! Como estas? Yo estoy bien, gracias.
+Introduccion a la Programacion es una materia de la UBA.
