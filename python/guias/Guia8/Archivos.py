@@ -98,3 +98,54 @@ def frecuenciaPalabra(nombreArchivo:str) -> dict[str,int]:
     return frecuencia
 
 print(laPalabraMasFrecuente("prueba.txt"))
+
+#22
+def clonarSinComentarios(nombreArchivoEntrada:str,nombreArchivoSalida:str):
+    entrada = open(nombreArchivoEntrada,"r",encoding="utf-8")
+    salida = open(nombreArchivoSalida,"w",encoding="utf-8")
+    for linea in entrada:
+        if linea[0] != "#":
+            salida.write(linea)
+    entrada.close()
+    salida.close()
+
+#clonarSinComentarios("prueba.txt","pruebaSinComentarios.txt")
+
+#23
+def invertirLineas(nombreArchivoEntrada:str,nombreArchivoSalida:str):
+    entrada = open(nombreArchivoEntrada,"r",encoding="utf-8")
+    salida = open(nombreArchivoSalida,"w",encoding="utf-8")
+    lineas = entrada.readlines()
+    for i in range(len(lineas)-1,-1,-1):
+        salida.write(lineas[i])
+    entrada.close()
+    salida.close()
+
+# invertirLineas("prueba.txt","pruebaLineasInvertidas.txt")
+
+#24
+def agregarFraseAlFinal(nombreArchivo:str,frase:str):
+    archivo = open(nombreArchivo,"r", encoding="utf-8")
+    lineas = archivo.readlines()
+    archivo.close()
+    archivo2 = open(nombreArchivo,"a",encoding="utf-8")
+    if len(lineas) > 0 and not lineas[len(lineas)-1].endswith("\n"):
+        archivo2.write("\n")
+    archivo2.write(frase + "\n")
+    archivo2.close()
+
+agregarFraseAlFinal("prueba.txt","Agrego esta frase al final")
+
+#25
+def agregarFraseAlPrincipio(nombreArchivo:str,frase:str):
+    nuevo = [frase + "\n"]
+    archivo = open(nombreArchivo,"r", encoding="utf-8")
+    lineas = archivo.readlines()
+    archivo.close()
+    nuevo = nuevo + lineas
+    archivo2 = open(nombreArchivo,"w", encoding="utf-8")
+    for linea in nuevo:
+        archivo2.write(linea)
+    archivo2.close()
+
+agregarFraseAlPrincipio("prueba.txt", "Esta es la nueva primera linea")
