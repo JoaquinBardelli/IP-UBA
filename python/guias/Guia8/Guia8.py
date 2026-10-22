@@ -543,3 +543,22 @@ def agregarFraseAlPrincipio(nombreArchivo:str,frase:str):
     archivo2.close()
 
 agregarFraseAlPrincipio("prueba.txt", "Esta es la nueva primera linea")
+
+#26
+def listarTextosDeArchivo(nombreArchivo:str) -> list[str]:
+    archivo = open(nombreArchivo, "rb")
+    resultado = []
+    actual = ""
+    contenido = archivo.read()
+    archivo.close()
+    for byte in contenido:
+        c = chr(byte)
+        if c.isalnum() or c == " " or c == "_":
+            actual += c
+        else:
+            if len(actual) >= 5:
+                resultado.append(actual)
+            actual = ""
+    if len(actual) >= 5:
+        resultado.append(actual)
+    return resultado
