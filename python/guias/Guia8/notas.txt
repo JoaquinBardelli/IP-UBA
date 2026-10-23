@@ -1,0 +1,10 @@
+pedro, mate, hoy, 8
+pedro, mate, hoy, 6
+pedro, mate, hoy, 7
+juan, mate, hoy, 4
+juan, mate, hoy, 6
+juan, mate, hoy, 5
+mateo, mate, hoy, 8
+mateo, mate, hoy, 8
+mateo, mate, hoy, 8
+

@@ -1,4 +1,5 @@
 Esta es la nueva primera linea
+Esta es la nueva primera linea
 Introduccion a la Programacion es una materia de la UBA.
 Hola! Como estas? Yo estoy bien, gracias.
 
@@ -22,4 +23,5 @@ python
 Ultimas lineas del archivo:
 Las notas del parcial fueron 7, 8, 10 y 4.
 Fin del archivo de prueba.
+Agrego esta frase al final
 Agrego esta frase al final
