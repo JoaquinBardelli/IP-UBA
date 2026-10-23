@@ -97,7 +97,7 @@ def frecuenciaPalabra(nombreArchivo:str) -> dict[str,int]:
     archivo.close()
     return frecuencia
 
-print(laPalabraMasFrecuente("prueba.txt"))
+#print(laPalabraMasFrecuente("prueba.txt"))
 
 #22
 def clonarSinComentarios(nombreArchivoEntrada:str,nombreArchivoSalida:str):
@@ -134,7 +134,7 @@ def agregarFraseAlFinal(nombreArchivo:str,frase:str):
     archivo2.write(frase + "\n")
     archivo2.close()
 
-agregarFraseAlFinal("prueba.txt","Agrego esta frase al final")
+#agregarFraseAlFinal("prueba.txt","Agrego esta frase al final")
 
 #25
 def agregarFraseAlPrincipio(nombreArchivo:str,frase:str):
@@ -148,7 +148,7 @@ def agregarFraseAlPrincipio(nombreArchivo:str,frase:str):
         archivo2.write(linea)
     archivo2.close()
 
-agregarFraseAlPrincipio("prueba.txt", "Esta es la nueva primera linea")
+#agregarFraseAlPrincipio("prueba.txt", "Esta es la nueva primera linea")
 
 #26
 def listarTextosDeArchivo(nombreArchivo:str) -> list[str]:
@@ -168,3 +168,35 @@ def listarTextosDeArchivo(nombreArchivo:str) -> list[str]:
     if len(actual) >= 5:
         resultado.append(actual)
     return resultado
+
+#27
+def calcularPromedioPorEstudiante(nombreArchivoNotas : str, nombreArchivoPromedios : str):
+    archivo = open(nombreArchivoNotas, "r", encoding="utf-8")
+    lineas = archivo.readlines()
+    archivo.close()
+    promedioPorEstudiante = {}
+    for linea in lineas:
+        if linea.strip() == "":
+            continue
+        campos = linea.split(",")
+        if campos[0] not in promedioPorEstudiante:
+            promedioPorEstudiante[campos[0]] = promedioEstudiante(lineas, campos[0])
+    promedios = open(nombreArchivoPromedios, "w", encoding="utf-8")
+    for lu, promedio in promedioPorEstudiante.items():
+        promedios.write(lu + "," + str(promedio) + "\n")
+    promedios.close()
+    
+
+def promedioEstudiante(notasDeEstudiantes : list[str], lu : str) -> float:
+    sumaNotas = 0
+    cantidad = 0
+    for elemento in notasDeEstudiantes:
+        if elemento.strip() == "":
+            continue
+        campos = elemento.split(",")
+        if campos[0] == lu:
+            sumaNotas += float(campos[3])
+            cantidad += 1
+    return sumaNotas/cantidad
+
+calcularPromedioPorEstudiante("notas.txt", "promedioNotas.txt")
