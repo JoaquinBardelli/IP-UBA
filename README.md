@@ -140,4 +140,4 @@ Los archivos por tema se corren **desde su carpeta**, porque algunos importan fu
 - [x] Guía 5
 - [x] Guía 6
 - [x] Guía 7
-- [x] Guía 8 — pilas, colas, diccionarios y archivos
+- [x] Guía 8
