@@ -21,10 +21,10 @@ Guías prácticas y parciales resueltos en Haskell y Python.
 - [📚 Contenido](#-contenido)
   - [🧩 Guías separadas por tema](#-guías-separadas-por-tema)
   - [📝 Parciales](#-parciales)
-- [📊 En números](#-en-números)
 - [📁 Estructura](#-estructura)
 - [🚀 Cómo correrlo](#-cómo-correrlo)
 - [✅ Progreso](#-progreso)
+- [📊 En números](#-en-números)
 
 ---
 
@@ -88,25 +88,6 @@ Todos en [`haskell/parciales/`](haskell/parciales):
 | `democracia.hs` | Ejercicio tipo parcial (solo la consigna, sin resolver) |
 
 `python/parciales/` está reservada para los parciales de Python (vacía por ahora).
-
----
-
-## 📊 En números
-
-| | Líneas | Funciones |
-|---|---:|---:|
-| 🟣 Guía 3 | 153 | 30 |
-| 🟣 Guía 4 | 150 | 30 |
-| 🟣 Guía 5 | 329 | 63 |
-| 🔵 Guía 6 | 225 | 37 |
-| 🔵 Guía 7 | 432 | 43 |
-| 🔵 Guía 8 | 595 | 39 |
-| **Guías** | **1884** | **242** |
-| 📝 Parciales | 476 | 68 |
-| **Total** | **2360** | **310** |
-
-> [!NOTE]
-> Para las guías 7 y 8 se cuenta solo `GuiaN.py`, porque los archivos por tema son copias de la misma guía. No se cuentan los tests ni `democracia.hs`, que no tiene código. En Haskell, una función es cada firma de tipo (`nombre :: ...`); en Python, cada `def`.
 
 ---
 
@@ -175,3 +156,22 @@ Los archivos por tema se corren **desde su carpeta**, porque algunos importan fu
 - [x] Guía 6
 - [x] Guía 7
 - [x] Guía 8
+
+---
+
+## 📊 En números
+
+| | Líneas | Funciones |
+|---|---:|---:|
+| 🟣 Guía 3 | 153 | 30 |
+| 🟣 Guía 4 | 150 | 30 |
+| 🟣 Guía 5 | 329 | 63 |
+| 🔵 Guía 6 | 225 | 37 |
+| 🔵 Guía 7 | 432 | 43 |
+| 🔵 Guía 8 | 595 | 39 |
+| **Guías** | **1884** | **242** |
+| 📝 Parciales | 476 | 68 |
+| **Total** | **2360** | **310** |
+
+> [!NOTE]
+> Para las guías 7 y 8 se cuenta solo `GuiaN.py`, porque los archivos por tema son copias de la misma guía. No se cuentan los tests ni `democracia.hs`, que no tiene código. En Haskell, una función es cada firma de tipo (`nombre :: ...`); en Python, cada `def`.
