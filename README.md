@@ -9,8 +9,22 @@ Guías prácticas y parciales resueltos en Haskell y Python.
 ![Haskell](https://img.shields.io/badge/Haskell-5D4F85?style=for-the-badge&logo=haskell&logoColor=white)
 ![Python](https://img.shields.io/badge/Python_3-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Guías](https://img.shields.io/badge/guías-3_a_8-2ea44f?style=for-the-badge)
+![Líneas](https://img.shields.io/badge/líneas-2360-orange?style=for-the-badge)
+![Funciones](https://img.shields.io/badge/funciones-310-blueviolet?style=for-the-badge)
 
 </div>
+
+---
+
+## 🧭 Índice
+
+- [📚 Contenido](#-contenido)
+  - [🧩 Guías separadas por tema](#-guías-separadas-por-tema)
+  - [📝 Parciales](#-parciales)
+- [📊 En números](#-en-números)
+- [📁 Estructura](#-estructura)
+- [🚀 Cómo correrlo](#-cómo-correrlo)
+- [✅ Progreso](#-progreso)
 
 ---
 
@@ -70,13 +84,33 @@ Todos en [`haskell/parciales/`](haskell/parciales):
 | `parcial2024.hs` | Parcial 2024 |
 | `SimulacroHaskell.hs` | Simulacro (consigna en `consignaSimulacro.txt`) |
 | `Repaso.hs` | Repaso |
-| `democracia.hs` · `perfectosAmigos.hs` · `sistemaStock.hs` · `sopaDeNumeros.hs` | Ejercicios tipo parcial |
+| `perfectosAmigos.hs` · `sistemaStock.hs` · `sopaDeNumeros.hs` | Ejercicios tipo parcial |
+| `democracia.hs` | Ejercicio tipo parcial (solo la consigna, sin resolver) |
 
 `python/parciales/` está reservada para los parciales de Python (vacía por ahora).
 
 ---
 
-## 🗂️ Estructura
+## 📊 En números
+
+| | Líneas | Funciones |
+|---|---:|---:|
+| 🟣 Guía 3 | 153 | 30 |
+| 🟣 Guía 4 | 150 | 30 |
+| 🟣 Guía 5 | 329 | 63 |
+| 🔵 Guía 6 | 225 | 37 |
+| 🔵 Guía 7 | 432 | 43 |
+| 🔵 Guía 8 | 595 | 39 |
+| **Guías** | **1884** | **242** |
+| 📝 Parciales | 476 | 68 |
+| **Total** | **2360** | **310** |
+
+> [!NOTE]
+> Para las guías 7 y 8 se cuenta solo `GuiaN.py`, porque los archivos por tema son copias de la misma guía. No se cuentan los tests ni `democracia.hs`, que no tiene código. En Haskell, una función es cada firma de tipo (`nombre :: ...`); en Python, cada `def`.
+
+---
+
+## 📁 Estructura
 
 ```
 IP-UBA/
@@ -93,7 +127,7 @@ IP-UBA/
 
 ---
 
-## ▶️ Cómo correrlo
+## 🚀 Cómo correrlo
 
 <details>
 <summary><b>🟣 Haskell</b></summary>
