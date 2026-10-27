@@ -1,7 +1,7 @@
 import random
 from queue import LifoQueue as Pila
 
-# ! PARTE 1: Listas
+# ! PARTE 1: Pilas
 
 def mostrarPila(pilaOriginal: Pila) -> None:
     res = []
@@ -45,8 +45,9 @@ def cantidadDeElementos(pila:Pila) -> int:
 
 #3
 def buscarElMaximo(pila:Pila[int]) -> int:
-    maximo = 0
     elementos = []
+    maximo = pila.get()
+    elementos.append(maximo)
     while pila.empty() == False:
         valor = pila.get()
         elementos.append(valor)

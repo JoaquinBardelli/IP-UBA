@@ -39,7 +39,7 @@ def sumaTotal(lista:list[int]) -> int:
 
 #Ejercicio 4
 def maximo(lista:list[int]) -> int:
-    maximo = 0
+    maximo = lista[0]
     for num in lista:
         if num > maximo:
             maximo = num
@@ -75,10 +75,10 @@ def posMaximo1(lista:list[int]) -> int:
     return buscarIndice(lista,max)
 
 def posMaximo2(lista:list[int]) -> int:
-    maximo = 0
-    indice = 0
     if len(lista) == 0:
         return -1
+    maximo = lista[0]
+    indice = 0
     for i in range (0,len(lista)):
         if lista[i] > maximo:
             maximo = lista[i]

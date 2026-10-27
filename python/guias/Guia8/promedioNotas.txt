@@ -1,3 +1,0 @@
-pedro,7.0
-juan,5.0
-mateo,8.0

@@ -15,3 +15,8 @@ dist-newstyle/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Archivos de salida generados por los ejercicios de la guia 8
+python/guias/Guia8/promedioNotas.txt
+python/guias/Guia8/pruebaLineasInvertidas.txt
+python/guias/Guia8/pruebaSinComentarios.txt

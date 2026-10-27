@@ -2,7 +2,7 @@ import random
 from queue import LifoQueue as Pila
 from queue import Queue as Cola
 
-# ! PARTE 1: Listas
+# ! PARTE 1: Pilas
 
 def mostrarPila(pilaOriginal: Pila) -> None:
     res = []
@@ -46,8 +46,9 @@ def cantidadDeElementos(pila:Pila) -> int:
 
 #3
 def buscarElMaximo(pila:Pila[int]) -> int:
-    maximo = 0
     elementos = []
+    maximo = pila.get()
+    elementos.append(maximo)
     while pila.empty() == False:
         valor = pila.get()
         elementos.append(valor)
@@ -173,14 +174,14 @@ def intercalar(pila1:Pila,pila2:Pila) -> Pila:
 #! PARTE 2: Colas
 
 #8
-def generarNrosAlAzar(cantidad:int,desde:int,hasta:int) -> Cola:
+def generarNrosAlAzarCola(cantidad:int,desde:int,hasta:int) -> Cola:
     cola = Cola()
     for i in range(0,cantidad):
         numero = random.randint(desde,hasta)
         cola.put(numero)
     return cola
 #9
-def cantidadDeElementos(cola:Cola) -> int:
+def cantidadDeElementosCola(cola:Cola) -> int:
     elementos = []
     cantidad = 0
     while not cola.empty():
@@ -190,13 +191,14 @@ def cantidadDeElementos(cola:Cola) -> int:
         cola.put(elem)
     return cantidad
 
-#cola = generarNrosAlAzar(10,0,10)
-#print(cantidadDeElementos(cola))
+#cola = generarNrosAlAzarCola(10,0,10)
+#print(cantidadDeElementosCola(cola))
 
 #10
-def buscarElMaximo(cola:Cola) -> int:
+def buscarElMaximoCola(cola:Cola) -> int:
     elementos = []
-    maximo = 0
+    maximo = cola.get()
+    elementos.append(maximo)
     while not cola.empty():
         valor = cola.get()
         if valor >= maximo:
@@ -206,8 +208,8 @@ def buscarElMaximo(cola:Cola) -> int:
         cola.put(elem)
     return maximo
 
-#cola = generarNrosAlAzar(10,0,100)
-#print(buscarElMaximo(cola))
+#cola = generarNrosAlAzarCola(10,0,100)
+#print(buscarElMaximoCola(cola))
 
 #11
 def buscarNotaMinima(cola:Cola)->list[(str,int)]:
@@ -231,7 +233,7 @@ def buscarNotaMinima(cola:Cola)->list[(str,int)]:
 # print(buscarNotaMinima(cola))
 
 #12
-def intercalar(cola1:Cola,cola2:Cola) -> Cola:
+def intercalarCola(cola1:Cola,cola2:Cola) -> Cola:
     res = Cola()
     elementos1 = []
     elementos2 = []
@@ -564,7 +566,7 @@ def listarTextosDeArchivo(nombreArchivo:str) -> list[str]:
     return resultado
 
 #27
-def calcularPromedioPorEstudiante(nombreArchivoNotas : str, nombreArchivoPromedios : str):
+def calcularPromedioPorEstudianteArchivo(nombreArchivoNotas : str, nombreArchivoPromedios : str):
     archivo = open(nombreArchivoNotas, "r", encoding="utf-8")
     lineas = archivo.readlines()
     archivo.close()
@@ -593,4 +595,4 @@ def promedioEstudiante(notasDeEstudiantes : list[str], lu : str) -> float:
             cantidad += 1
     return sumaNotas/cantidad
 
-calcularPromedioPorEstudiante("notas.txt", "promedioNotas.txt")
+calcularPromedioPorEstudianteArchivo("notas.txt", "promedioNotas.txt")

@@ -32,4 +32,4 @@ def historialMonedero() -> list[(str,int)]:
         accion = input("Ingrese la opercion a hacer: ")
     return historial
 
-print(historialMonedero())
+#print(historialMonedero())

@@ -170,7 +170,7 @@ def listarTextosDeArchivo(nombreArchivo:str) -> list[str]:
     return resultado
 
 #27
-def calcularPromedioPorEstudiante(nombreArchivoNotas : str, nombreArchivoPromedios : str):
+def calcularPromedioPorEstudianteArchivo(nombreArchivoNotas : str, nombreArchivoPromedios : str):
     archivo = open(nombreArchivoNotas, "r", encoding="utf-8")
     lineas = archivo.readlines()
     archivo.close()
@@ -199,4 +199,4 @@ def promedioEstudiante(notasDeEstudiantes : list[str], lu : str) -> float:
             cantidad += 1
     return sumaNotas/cantidad
 
-calcularPromedioPorEstudiante("notas.txt", "promedioNotas.txt")
+calcularPromedioPorEstudianteArchivo("notas.txt", "promedioNotas.txt")

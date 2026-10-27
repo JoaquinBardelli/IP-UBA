@@ -9,7 +9,7 @@ Guías prácticas y parciales resueltos en Haskell y Python.
 ![Haskell](https://img.shields.io/badge/Haskell-5D4F85?style=for-the-badge&logo=haskell&logoColor=white)
 ![Python](https://img.shields.io/badge/Python_3-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Guías](https://img.shields.io/badge/guías-3_a_8-2ea44f?style=for-the-badge)
-![Líneas](https://img.shields.io/badge/líneas-2360-orange?style=for-the-badge)
+![Líneas](https://img.shields.io/badge/líneas-2362-orange?style=for-the-badge)
 ![Funciones](https://img.shields.io/badge/funciones-310-blueviolet?style=for-the-badge)
 
 </div>
@@ -81,11 +81,11 @@ Todos en [`haskell/parciales/`](haskell/parciales):
 
 | Archivo | Descripción |
 |---------|-------------|
-| `parcial2024.hs` | Parcial 2024 |
-| `SimulacroHaskell.hs` | Simulacro (consigna en `consignaSimulacro.txt`) |
+| `Parcial2024.hs` | Parcial 2024 |
+| `SimulacroHaskell.hs` | Simulacro (consigna en `ConsignaSimulacro.txt`) |
 | `Repaso.hs` | Repaso |
-| `perfectosAmigos.hs` · `sistemaStock.hs` · `sopaDeNumeros.hs` | Ejercicios tipo parcial |
-| `democracia.hs` | Ejercicio tipo parcial (solo la consigna, sin resolver) |
+| `PerfectosAmigos.hs` · `SistemaStock.hs` · `SopaDeNumeros.hs` | Ejercicios tipo parcial |
+| `Democracia.hs` | Ejercicio tipo parcial (solo la consigna, sin resolver) |
 
 `python/parciales/` está reservada para los parciales de Python (vacía por ahora).
 
@@ -139,9 +139,6 @@ Los tests de la guía 7 se corren desde la raíz del repo:
 python -m unittest python.guias.Guia7.testGuia7
 ```
 
-> [!TIP]
-> `Guia7.py` termina con un programa interactivo (`historialMonedero`), así que al correr los tests pide una operación: escribí `X` para salir.
-
 Los archivos por tema se corren **desde su carpeta**, porque algunos importan funciones de otros (por ejemplo, `Matrices.py` usa `ordenados` de `Busqueda.py`).
 
 </details>
@@ -168,10 +165,10 @@ Los archivos por tema se corren **desde su carpeta**, porque algunos importan fu
 | 🟣 Guía 5 | 329 | 63 |
 | 🔵 Guía 6 | 225 | 37 |
 | 🔵 Guía 7 | 432 | 43 |
-| 🔵 Guía 8 | 595 | 39 |
-| **Guías** | **1884** | **242** |
+| 🔵 Guía 8 | 597 | 39 |
+| **Guías** | **1886** | **242** |
 | 📝 Parciales | 476 | 68 |
-| **Total** | **2360** | **310** |
+| **Total** | **2362** | **310** |
 
 > [!NOTE]
-> Para las guías 7 y 8 se cuenta solo `GuiaN.py`, porque los archivos por tema son copias de la misma guía. No se cuentan los tests ni `democracia.hs`, que no tiene código. En Haskell, una función es cada firma de tipo (`nombre :: ...`); en Python, cada `def`.
+> Para las guías 7 y 8 se cuenta solo `GuiaN.py`, porque los archivos por tema son copias de la misma guía. No se cuentan los tests ni `Democracia.hs`, que no tiene código. En Haskell, una función es cada firma de tipo (`nombre :: ...`); en Python, cada `def`.
